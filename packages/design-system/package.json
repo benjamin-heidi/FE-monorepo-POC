@@ -1,0 +1,43 @@
+{
+  "name": "@heidi/design-system",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format esm,cjs --clean --splitting --minify",
+    "dev": "tsup src/index.ts --dts --format esm,cjs --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "echo 'No tests yet'"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "class-variance-authority": "^0.7.0"
+  }
+}
+

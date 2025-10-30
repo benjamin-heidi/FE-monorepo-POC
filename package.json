@@ -1,0 +1,60 @@
+{
+  "name": "@heidi/frontend-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.11.0",
+  "description": "Heidi Health monorepo containing scribe-fe-v2 and scribe-js-plugin",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "pnpm -r build",
+    "dev": "pnpm -r --parallel --filter './apps/**' dev",
+    "dev:web": "pnpm --filter scribe dev",
+    "dev:widget": "pnpm --filter scribe-widget dev",
+    "dev:chrome-extension": "pnpm --filter scribe-chrome-extension dev",
+    "dev:tauri": "pnpm --filter scribe tauri:dev",
+    "dev:design-system": "pnpm --filter @heidi/design-system dev",
+    "dev:web-with-ds": "pnpm --parallel --filter scribe --filter @heidi/design-system dev",
+    "dev:widget-with-ds": "pnpm --parallel --filter scribe-widget --filter @heidi/design-system dev",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r --parallel run typecheck",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "schema:web:local": "pnpm --filter scribe schema:local",
+    "schema:web:dev": "pnpm --filter scribe schema:dev",
+    "schema:web:staging": "pnpm --filter scribe schema:staging",
+    "schema:widget": "pnpm --filter scribe-widget schema",
+    "schema:widget:dev": "pnpm --filter scribe-widget schema:dev",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "publish-packages": "pnpm -r publish --access public",
+    "publish-packages:enterprise": "pnpm -r publish --access public --tag enterprise"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": "^18",
+        "react-dom": "^18"
+      }
+    },
+    "overrides": {
+      "rollup@<2.79.2": ">=2.79.2",
+      "cookie@<0.7.0": ">=0.7.0",
+      "cross-spawn@<7.0.5": ">=7.0.5",
+      "nanoid@<3.3.8": "^3.3.8",
+      "esbuild@<=0.24.2": ">=0.25.0",
+      "prismjs@<1.30.0": ">=1.30.0",
+      "@babel/runtime@<7.26.10": ">=7.26.10",
+      "@babel/helpers@<7.26.10": ">=7.26.10",
+      "form-data@>=4.0.0 <4.0.4": ">=4.0.4",
+      "form-data@<2.5.4": ">=2.5.4",
+      "tmp@<=0.2.3": ">=0.2.4"
+    },
+    "onlyBuiltDependencies": [
+      "canvas"
+    ]
+  }
+}
+

@@ -1,0 +1,6 @@
+packages:
+  - "packages/*"
+  - "apps/*"
+  - "apps/scribe-plugins/plugin"
+  # - "apps/scribe-plugins/wxt-chrome-extension"
+
